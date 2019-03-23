@@ -1,2 +1,2 @@
 # HackBdx19
-Repository for the Bordeaux (Fr) Hackaton 2019 edition
+Repository for the Bordeaux (Fr) Hackathon 2019 edition
