@@ -1,0 +1,118 @@
+[
+    {
+        "id": "1",
+        "type": "Action",
+        "action": "Avancer de 1 cases",
+        "cost": "1"
+    },
+    {
+        "id": "2",
+        "type": "Action",
+        "action": "Avancer de 3 cases",
+        "cost": "3"
+    },
+    {
+        "id": "3",
+        "type": "Action",
+        "action": "Sauter de 1 cases",
+        "cost": "3"
+    },
+    {
+        "id": "4",
+        "type": "Action",
+        "action": "Reculer de 1 cases",
+        "cost": "2"
+    },
+    {
+        "id": "5",
+        "type": "Action",
+        "action": "Rotation horaire",
+        "cost": "1"
+    },
+    {
+        "id": "6",
+        "type": "Action",
+        "action": "Rotation anti-horaire",
+        "cost": "1"
+    },
+    {
+        "id": "7",
+        "type": "Action",
+        "action": "Passer tour",
+        "cost": "0"
+    },
+    {
+        "id": "8",
+        "type": "Bonus",
+        "action": "Gain énergie 2",
+        "cost": "0"
+    }
+    ,
+    {
+        "id": "9",
+        "type": "Bonus",
+        "action": "La prochaine carte est gratuite",
+        "cost": "1",
+        "isTemporary": true
+    },
+    {
+        "id": "10",
+        "type": "Malus",
+        "action": "Enlever 1 energie",
+        "cost": "1"
+    },
+    {
+        "id": "11",
+        "type": "Malus",
+        "action": "Interdire Rotation",
+        "cost": "2"
+    },
+    {
+        "id": "12",
+        "type": "Malus",
+        "action": "Interdire Boucle",
+        "cost": "2"
+    },
+    {
+        "id": "13",
+        "type": "Malus",
+        "action": "Interdire If",
+        "cost": "2"
+    },
+    {
+        "id": "14",
+        "type": "Malus",
+        "action": "Interdire Break",
+        "cost": "2"
+    },
+    {
+        "id": "15",
+        "type": "Malus",
+        "action": "Interdire Goto",
+        "cost": "2"
+    },
+    {
+        "id": "16",
+        "type": "Structure de controle",
+        "action": "Tant que",
+        "cost": "2"
+    },
+    {
+        "id": "17",
+        "type": "Structure de controle",
+        "action": "If",
+        "cost": "2"
+    },
+    {
+        "id": "18",
+        "type": "Structure de controle",
+        "action": "Break",
+        "cost": "2"
+    },
+    {
+        "id": "19",
+        "type": "Structure de controle",
+        "action": "Goto",
+        "cost": "2"
+    }
+]
