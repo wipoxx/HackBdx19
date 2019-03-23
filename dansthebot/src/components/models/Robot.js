@@ -42,4 +42,47 @@ export class Robot {
         }
     }
 
+    //Fonctions de Rotation 
+    Rotate(direction){
+        if(direction == "HORAIRE"){
+            switch(this.orientation){
+                case 'NORTH':
+                    this.orientation = 'EAST';
+                break;
+                case 'SOUTH':
+                    this.orientation = 'WEST';
+                break;
+                case 'WEST':
+                    this.orientation = 'NORTH';
+                break;
+                case 'EAST':
+                    this.orientation = 'SOUTH';
+                break;
+            }
+
+        } else {
+            switch(this.orientation){
+                case 'NORTH':
+                    this.orientation = 'WEST';
+                break;
+                case 'SOUTH':
+                    this.orientation = 'EAST';
+                break;
+                case 'WEST':
+                    this.orientation = 'SOUTH';
+                break;
+                case 'EAST':
+                    this.orientation = 'NORTH';
+                break;
+            }
+        }
+    }
+
+    RotateHoraire(){
+        Rotate("HORAIRE");
+    }
+
+    AntiRotate(){
+        Rotate("ANTIHORAIRE");
+    }
 }
