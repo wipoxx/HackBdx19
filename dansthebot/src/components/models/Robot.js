@@ -1,4 +1,6 @@
 import Position from './Position'
+import Utilities from './Utilities'
+
 export class Robot {
     constructor(nbBatterie, position, etat, orientation){
         this.nbBatterie = nbBatterie;
@@ -39,22 +41,51 @@ export class Robot {
         Move(2);
     }
     Move(nbCase){
+        let arrayPos = [];
         switch(this.orientation){
             case 'NORTH':
-                //TODO: Tester que le mouvement soit possible
-                this.position.setY(this.position.getY()-nbCase);
+                if(nbCase == 3) {
+                    arrayPos.push(this.position.getY()-1);
+                    arrayPos.push(this.position.getY()-2);
+                }
+                arrayPos.push(this.position.getY()-nbCase);
+
+                if(Utilities.isCorrectMove(arrayPos)) {
+                    this.position.setY(this.position.getY()-nbCase);
+                }
             break;
             case 'SOUTH':
-                //TODO: Tester que le mouvement soit possible
-                this.position.setY(this.position.getY()+nbCase);
+                if(nbCase == 3) {
+                    arrayPos.push(this.position.getY()+1);
+                    arrayPos.push(this.position.getY()+2);
+                }
+                arrayPos.push(this.position.getY()+nbCase);
+
+                if(Utilities.isCorrectMove(arrayPos)) {
+                    this.position.setY(this.position.getY()+nbCase);
+                }
             break;
             case 'WEST':
-                //TODO: Tester que le mouvement soit possible
-                this.position.setX(this.position.getX()-nbCase);
+                if(nbCase == 3) {
+                    arrayPos.push(this.position.getX()-1);
+                    arrayPos.push(this.position.getX()-2);
+                }
+                arrayPos.push(this.position.getX()-nbCase);
+
+                if(Utilities.isCorrectMove(arrayPos)) {
+                    this.position.setX(this.position.getX()-nbCase);
+                }
             break;
             case 'EAST':
-                //TODO: Tester que le mouvement soit possible
-                this.position.setX(this.position.getX()+nbCase);
+                if(nbCase == 3) {
+                    arrayPos.push(this.position.getX()+1);
+                    arrayPos.push(this.position.getX()+2);
+                } 
+                arrayPos.push(this.position.getX()+nbCase);
+
+                if(Utilities.isCorrectMove(arrayPos)) {
+                    this.position.setX(this.position.getX()+nbCase);
+                }
             break;
         }
     }
