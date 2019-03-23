@@ -8,6 +8,23 @@ export class Robot {
         this.etat = etat; 
     }
 
+    //Gettters
+    getPosition() {
+        return this.position;
+    }
+
+    getOrientation() {
+        return this.orientation;
+    }
+
+    getNbBatterie() {
+        return this.nbBatterie;
+    }
+
+    getEtat() {
+        return this.etat;
+    }
+
     //Deplacements
     MoveUp1(){
         Move(1);
