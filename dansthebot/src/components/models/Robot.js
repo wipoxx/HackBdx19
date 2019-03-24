@@ -57,10 +57,10 @@ export class Robot {
 		switch (this.orientation) {
 			case "NORTH":
 				if (nbCase === 3) {
-					arrayPos.push(this.position.getY() - 1);
-					arrayPos.push(this.position.getY() - 2);
+					arrayPos.push(new Position(this.position.getX(), this.position.getY() - 1));
+					arrayPos.push(new Position(this.position.getX(), this.position.getY() - 2));
 				}
-				arrayPos.push(this.position.getY() - nbCase);
+				arrayPos.push(new Position(this.position.getX(), this.position.getY() - nbCase));
 
 				if (Utilities.isCorrectMove(arrayPos)) {
 					this.position.setY(this.position.getY() - nbCase);
@@ -69,10 +69,10 @@ export class Robot {
 				break;
 			case "SOUTH":
 				if (nbCase === 3) {
-					arrayPos.push(this.position.getY() + 1);
-					arrayPos.push(this.position.getY() + 2);
+					arrayPos.push(new Position(this.position.getX(),this.position.getY() + 1));
+					arrayPos.push(new Position(this.position.getX(),this.position.getY() + 2));
 				}
-				arrayPos.push(this.position.getY() + nbCase);
+				arrayPos.push(new Position(this.position.getX(),this.position.getY() + nbCase));
 
 				if (Utilities.isCorrectMove(arrayPos)) {
 					this.position.setY(this.position.getY() + nbCase);
@@ -81,10 +81,10 @@ export class Robot {
 				break;
 			case "WEST":
 				if (nbCase === 3) {
-					arrayPos.push(this.position.getX() - 1);
-					arrayPos.push(this.position.getX() - 2);
+					arrayPos.push(new Position(this.position.getX() - 1,this.position.getY()));
+					arrayPos.push(new Position(this.position.getX() - 2,this.position.getY()));
 				}
-				arrayPos.push(this.position.getX() - nbCase);
+				arrayPos.push(new Position(this.position.getX() - nbCase,this.position.getY()));
 
 				if (Utilities.isCorrectMove(arrayPos)) {
 					this.position.setX(this.position.getX() - nbCase);
@@ -93,10 +93,10 @@ export class Robot {
 				break;
 			case "EAST":
 				if (nbCase === 3) {
-					arrayPos.push(this.position.getX() + 1);
-					arrayPos.push(this.position.getX() + 2);
+					arrayPos.push(new Position(this.position.getX() + 1,this.position.getY()));
+					arrayPos.push(new Position(this.position.getX() + 2,this.position.getY()));
 				}
-				arrayPos.push(this.position.getX() + nbCase);
+				arrayPos.push(new Position(this.position.getX() + nbCase,this.position.getY()));
 
 				if (Utilities.isCorrectMove(arrayPos)) {
 					this.position.setX(this.position.getX() + nbCase);
