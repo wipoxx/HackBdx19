@@ -1,8 +1,8 @@
 import { Robot } from './Robot';
 import { Position } from './Position';
 import { Cards } from './Cards';
-import {map} from './map';
-
+import { map } from './map';
+import { Utilities } from './Utilities';
 export class Game {
     constructor(nbRobot, nbTours) {
 
@@ -20,7 +20,7 @@ export class Game {
     }
 
     newBatteryPopUp() {
-        var random = this.getRandomInt(5, 10);
+        var random = Utilities.getRandomInt(5, 10);
         var maxWeight = 0;
         var tmpX;
         var tmpY;
@@ -50,11 +50,7 @@ export class Game {
 
     }
 
-    getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
+
 
     doAction(robot, action, cost) {
         if (cost <= robot.getEnergie()) {
