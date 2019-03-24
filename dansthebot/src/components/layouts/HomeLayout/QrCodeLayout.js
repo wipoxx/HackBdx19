@@ -127,6 +127,8 @@ class QrCodeLayout extends Component {
               this.setState({
                 errors: ['Vous avez des structures de contrôle non terminé.']
             })
+          }else{
+            console.log(this.game.HandleAlgo(this.state.cards));
           }
         }
 	render() {

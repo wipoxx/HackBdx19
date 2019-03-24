@@ -109,7 +109,7 @@ export class Game {
 
     HandleAlgo(cards){
         //TODO Recuperer le robot du player
-        let defaultTarget;
+        let defaultTarget=this.robots[0];
         for(var i = 0; i < cards.length; i++) {
             switch(cards[i].type){
                
