@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import "./Card.css";
 import QrReader from "react-qr-reader";
 import { Game } from "../../models/Game";
@@ -15,7 +16,7 @@ class QrCodeLayout extends Component {
 		super(props);
 		this.clearCards = this.clearCards.bind(this);
 		this.startAlgorithm = this.startAlgorithm.bind(this);
-		this.game = new Game(2, 0);
+		this.game = new Game(this.props.playersInfo.players.length, 0);
 	}
 	handleScan = data => {
 		if (data) {
@@ -219,5 +220,10 @@ class QrCodeLayout extends Component {
 		);
 	}
 }
+function mapStateToProps(state) {
+	return {
+		playersInfo: state.playersInfo,
+	};
+}
 
-export default QrCodeLayout;
+export default connect(mapStateToProps)(QrCodeLayout);
