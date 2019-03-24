@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Navbar from "../../containers/Navbar/index";
 import "./index.css";
 
 class EndTurnLayout extends Component {
@@ -30,7 +29,6 @@ class EndTurnLayout extends Component {
 		console.log(players);
 		return (
 			<div>
-				<Navbar />
 				<div className="container">
 					<h1>End of turn</h1>
 					<span>{component}</span>

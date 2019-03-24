@@ -1,54 +1,53 @@
-.c-card{
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
-    transition: 0.3s;
-    background: white;
-    height: 220px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 15px 15px 15px 15px;
+.container {
+	width: 100%;
 }
 
-.c-card-header{
-    background: #ecf0f1;
-    font-weight: bold;
-    font-size: 22px;
-    border-radius: 15px 15px 0px 0px;
+.c-card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+	transition: 0.3s;
+	background: white;
+	min-height: 220px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 15px 15px 15px 15px;
+	color: black;
 }
-.c-card-body{
-   
 
+.c-card-header {
+	background: #ecf0f1;
+	font-weight: bold;
+	font-size: 22px;
+	border-radius: 15px 15px 0px 0px;
 }
-.c-card-name{
-    display: inline-block;
+.c-card-body {
 }
-.c-energy-cost{
-    display: inline-block;
-    float: right;
-    margin-right: 8px;
+.c-card-name {
+	display: inline-block;
 }
-.c-card-order{
-    display: inline-block;
-    float: left;
-    font-size: 14px;
-    margin-left: 6px;
+.c-energy-cost {
+	display: inline-block;
+	float: right;
+	margin-right: 8px;
 }
-.c-card-footer{
-    
- 
- }
- .c-card-code{
-    color:black;
-    background: #ffea75;
- 
- }
+.c-card-order {
+	display: inline-block;
+	float: left;
+	font-size: 14px;
+	margin-left: 6px;
+}
+.c-card-footer {
+}
+.c-card-code {
+	color: black;
+	background: #ffea75;
+}
 
 .c-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7);
 }
-.qr-viewer{
-
-    background-image: url("https://st3.depositphotos.com/4257063/16921/v/1600/depositphotos_169212038-stock-illustration-seamless-diagonal-lines-background-similar.jpg");
+.qr-viewer {
+	width: 100%;
 }
-.d-none{
-    display: none;
+.d-none {
+	display: none;
 }

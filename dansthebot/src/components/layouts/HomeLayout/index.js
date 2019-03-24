@@ -53,14 +53,12 @@ class HomeLayout extends Component {
 
 	render() {
 		if (this.state.toNextScreen) {
-			//scanCards
-			return <Redirect to="/selectSpace" />;
+			return <Redirect to="/scanCards" />;
 		} else {
 			const inputs = this.state.inputs;
 			return (
 				<div className="App">
 					<header className="App-header">
-						{/* <img src={logo} className="App-logo" alt="logo" /> */}
 						<h1>Welcome to Dan the bot!</h1>
 						<form onChange={this.handleChange} onSubmit={this.handleSubmit}>
 							<div className="form-group">

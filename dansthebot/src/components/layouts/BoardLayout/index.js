@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "./index.css";
-import Navbar from "../../containers/Navbar/index";
 
 class BoardLayout extends Component {
 	state = {
@@ -33,7 +32,6 @@ class BoardLayout extends Component {
 			}
 			return (
 				<div>
-					<Navbar />
 					<div className="container">
 						<h1>Choose the space</h1>
 						<br />

@@ -22,12 +22,12 @@ class QrCodeLayout extends Component {
 			let cards = this.state.cards;
 			let lastCard = this.state.lastCard;
 			let currentCard = this.game.getDataCard(data);
-			if (lastCard !== null) {
-				if (currentCard.type === "Fin structure de controle") {
+			if (lastCard != null) {
+				if (currentCard.type == "Fin structure de controle") {
 					//Dans ce cas la, le joueur n'est pas censé jouer cette carte.
 					var hasOneStructureDeControle = false;
 					cards.forEach(function(element) {
-						if (element.type === "Structure de controle") {
+						if (element.type == "Structure de controle") {
 							hasOneStructureDeControle = true;
 						}
 					});
@@ -44,8 +44,8 @@ class QrCodeLayout extends Component {
 						});
 					}
 				} else if (
-					lastCard.type === "Structure de controle" &&
-					currentCard.type !== "Condition"
+					lastCard.type == "Structure de controle" &&
+					currentCard.type != "Condition"
 				) {
 					//Dans ce cas la, le joueur n'est pas censé jouer cette carte.
 					console.log("Veuillez jouer une carte condition après une SDC");
@@ -55,8 +55,8 @@ class QrCodeLayout extends Component {
 						],
 					});
 				} else if (
-					currentCard.type === "Condition" &&
-					lastCard.type !== "Structure de controle"
+					currentCard.type == "Condition" &&
+					lastCard.type != "Structure de controle"
 				) {
 					//Dans ce cas la, le joueur n'est pas censé jouer cette carte.
 					console.log(
@@ -81,8 +81,8 @@ class QrCodeLayout extends Component {
 			} else {
 				console.log(currentCard.type);
 				if (
-					currentCard.type !== "Condition" &&
-					currentCard.type !== "Fin structure de controle"
+					currentCard.type != "Condition" &&
+					currentCard.type != "Fin structure de controle"
 				) {
 					!cards.includes(currentCard)
 						? cards.push(currentCard)
@@ -105,7 +105,7 @@ class QrCodeLayout extends Component {
 	};
 
 	clearCards() {
-		if (typeof this.state.cards !== "undefined") {
+		if (typeof this.state.cards != "undefined") {
 			let cards = this.state.cards;
 			cards.length = 0;
 			cards = [];
@@ -122,13 +122,13 @@ class QrCodeLayout extends Component {
 		let nbFinStructureDeControle = 0;
 		cards.forEach(function(element) {
 			console.log(element);
-			if (element.type === "Structure de controle") {
+			if (element.type == "Structure de controle") {
 				nbStructureDeControle++;
-			} else if (element.type === "Fin structure de controle") {
+			} else if (element.type == "Fin structure de controle") {
 				nbFinStructureDeControle++;
 			}
 		});
-		if (nbStructureDeControle !== nbFinStructureDeControle) {
+		if (nbStructureDeControle != nbFinStructureDeControle) {
 			console.log("Vous avez des structures de contrôle non terminé.");
 			this.setState({
 				errors: ["Vous avez des structures de contrôle non terminé."],
@@ -142,23 +142,8 @@ class QrCodeLayout extends Component {
 
 		const errors = this.state.errors;
 		return (
-			<div className="App">
-				<link
-					rel="stylesheet"
-					href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
-				/>
-				{/*                 
-				<header className="App-header">
-				</header> */}
+			<div className="container">
 				<div className="qr-viewer">
-					{/* <div className="row">
-                            <div className="col-md-2">
-                                QR Code Scan
-                            </div>
-                            <div className="col-md-8">
-                                Cartes sélectionnés
-                            </div>
-                        </div> */}
 					<div className="row">
 						{errors.map((item, id) => {
 							return (
@@ -186,7 +171,7 @@ class QrCodeLayout extends Component {
 								type="button"
 								className="btn btn-info"
 							>
-								Lancer la main
+								Test your algorithm
 							</button>
 							<button
 								onClick={this.clearCards}
@@ -194,7 +179,7 @@ class QrCodeLayout extends Component {
 								type="button"
 								className="btn btn-danger"
 							>
-								Recommencer la main
+								Delete the cards
 							</button>
 						</div>
 						<div className="col-md-9">

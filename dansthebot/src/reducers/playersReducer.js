@@ -1,6 +1,6 @@
 import Actions from "../constants/Actions";
 const initialState = {
-	players: [{ username: "", life: 3, battery: 0, energy: 1 }],
+	players: [],
 	currentPlayer: 0,
 };
 

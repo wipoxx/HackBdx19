@@ -12,11 +12,9 @@ class App extends Component {
 			<BrowserRouter>
 				<Layout>
 					<Route exact path="/" component={HomeLayout} />
-
-					{/* <Route exact path="/scanCards" component={HomeLayout} /> */}
+					<Route exact path="/scanCards" component={QrCodeLayout} />
 					<Route exact path="/selectSpace" component={BoardLayout} />
 					<Route exact path="/endTurn" component={EndTurnLayout} />
-					<Route exact path="/qrcode" component={QrCodeLayout} />
 				</Layout>
 			</BrowserRouter>
 		);
