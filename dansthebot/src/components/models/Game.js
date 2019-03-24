@@ -18,8 +18,26 @@ export class Game{
         }
     }
 
-    
-    doAction(robot, action, cost){
+    newBatteryPopUp(){
+        var random = getRandomInt(5, 10);
+        //TODO boucle map
+        var x;
+        var y;
+        robots.forEach(robot => {
+            var dist = robot.getPosition().getX() * x - robot.getPosition().getY() * y;
+            if(dist >= random){
+                //TODO changé content
+            }
+        });
+    }
+
+    getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      doAction(robot, action, cost){
         if(cost <= robot.getEnergie()){
             let isDone = robot[action];
             if(isDone) {
@@ -38,4 +56,5 @@ export class Game{
     }
 
     //TODO: Reset la current energie et addEnergie a la fin du tour
+
 }
