@@ -90,7 +90,7 @@ export class Game {
 		switch (condition) {
 			case "hasWall":
 				let pos = robot.inFrontOfYou();
-				return map[pos.getX()][pos.getY()].type === "grass";
+				return map[pos.getX()* 20 +  pos.getY()].type === "grass";
 			default:
 				break;
 		}
