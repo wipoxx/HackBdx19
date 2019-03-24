@@ -1,4 +1,4 @@
-[
+export default Cards = [
     {
         "id": "1",
         "type": "Action",

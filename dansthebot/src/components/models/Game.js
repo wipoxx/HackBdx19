@@ -1,5 +1,6 @@
 import { Robot } from './Robot';
-import Position from './Position'
+import Position from './Position';
+import Cards from './Cards';
 
 export class Game{
     constructor(nbRobot, nbTours){
@@ -26,6 +27,14 @@ export class Game{
             }
         }
         //TODO: update le content de la map  si le robot a bougé
+    }
+
+    getDataCard(id){
+        Cards.forEach(card => {
+            if(card.id == id) {
+                return card;
+            }
+        });
     }
 
     //TODO: Reset la current energie et addEnergie a la fin du tour
