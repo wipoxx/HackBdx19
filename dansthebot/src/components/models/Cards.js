@@ -4,48 +4,48 @@ export const Cards = [
         "type": "Action",
         "action": "MoveUp1",
         "cost": "1",
-        "name": "Déplacement court",
-        "desc": "Déplacer votre personnage de 1 case vers la direction qu'il regarde."
+        "name": "Short movement",
+        "desc": "Move your robot one space in the direction he is facing."
     },
     {
         "id": "2",
         "type": "Action",
         "action": "MoveUp3",
         "cost": "3",
-        "name": "Déplacement long",
-        "desc": "Déplacer votre personnage de 3 case vers la direction qu'il regarde."
+        "name": "Big movement",
+        "desc": "Move your robot three spaces in the direction he is facing."
     },
     {
         "id": "3",
         "type": "Action",
         "action": "Jump1",
         "cost": "3",
-        "name": "Saut simple",
-        "desc": "Saut de 2 case, permet de passer par dessus les obstacles."
+        "name": "Simple jump",
+        "desc": "Jump 2 spaces, over obstacles."
     },
     {
         "id": "4",
         "type": "Action",
         "action": "MoveBack1",
         "cost": "2",
-        "name": "Déplacement arrière simple",
-        "desc": "Déplacer votre personnage 1 case en arrière."
+        "name": "Simple back movement",
+        "desc": "Move your robot one space behind."
     },
     {
         "id": "5",
         "type": "Action",
         "action": "RotateHoraire",
         "cost": "1",
-        "name": "Tourner à droite",
-        "desc": "Tourne votre robot 90° dans le sens horaire."
+        "name": "Turn right",
+        "desc": "Turn your robot 90° clockwise."
     },
     {
         "id": "6",
         "type": "Action",
         "action": "AntiRotate",
         "cost": "1",
-        "name": "Tourner à gauche",
-        "desc": "Tourne votre robot 90° dans le sens anti-horaire."
+        "name": "Turn left",
+        "desc": "Turn your robot 90° anticlockwise."
     },
     {
         "id": "7",
@@ -53,8 +53,8 @@ export const Cards = [
         "type": "Action",
         "action": "Pass",
         "cost": "0",
-        "name": "Passer votre tour",
-        "desc": "Fin de votre tour."
+        "name": "Skip the turn",
+        "desc": "End of your turn."
     },
     {
         "id": "8",
@@ -81,8 +81,8 @@ export const Cards = [
         "action": "Lose1",
         "cost": "1",
         "args": ["target"],
-        "name": "Fatigue !",
-        "desc": "Réduisez de 1 l'énergie d'un adversaire choisi pour son prochain tour."
+        "name": "Tired !",
+        "desc": "Reduce 1 energy Réduisez de 1 l'énergie d'un adversaire choisi pour son prochain tour."
     },
     {
         "id": "11",
