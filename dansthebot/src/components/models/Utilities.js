@@ -1,12 +1,12 @@
-import Map from 'map.js';
+import {map} from './map';
 
-class Utilities {
+export class Utilities {
     //Verifie si le move est correct 
     static isCorrectMove(arrayPos) {        
         arrayPos.forEach(pos => {
             let x = pos.getX();
             let y = pos.getY();
-            if(Map[x][y].type == "grass" || Map[x][y].content == "robot") {
+            if(map[x][y].type == "grass" || map[x][y].content == "robot") {
                 return false;
             }
         });

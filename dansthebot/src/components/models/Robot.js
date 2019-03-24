@@ -1,5 +1,5 @@
-import Position from './Position'
-import Utilities from './Utilities'
+import {Position} from './Position'
+import {Utilities} from './Utilities'
 
 export class Robot {
     constructor(nbBatterie, position, etat, orientation, energie){
@@ -42,16 +42,16 @@ export class Robot {
 
     //Deplacements
     MoveUp1(){
-        return Move(1);
+        return this.Move(1);
     }
     MoveUp3(){
-        return Move(3);
+        return this.Move(3);
     }
     MoveBack1(){
-        return Move(-1);
+        return this.Move(-1);
     }
     Jump1(){
-        return Move(2);
+        return this.Move(2);
     }
     Move(nbCase){
         let arrayPos = [];
@@ -146,10 +146,10 @@ export class Robot {
     }
 
     RotateHoraire(){
-        return Rotate("HORAIRE");
+        return this.Rotate("HORAIRE");
     }
 
     AntiRotate(){
-        return Rotate("ANTIHORAIRE");
+        return this.Rotate("ANTIHORAIRE");
     }
 }

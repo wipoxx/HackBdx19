@@ -3,7 +3,9 @@ export const Cards = [
         "id": "1",
         "type": "Action",
         "action": "MoveUp1",
-        "cost": "1"
+        "cost": "1",
+        "name": "Deplacement simple",
+        "desc": "Deplacement votre personnage de 1 case"
     },
     {
         "id": "2",

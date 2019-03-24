@@ -1,4 +1,4 @@
-export default Map = [{
+export const map = [{
             "x": 0,
             "y": 0,
             "type": "grass",

@@ -1,7 +1,7 @@
 import { Robot } from './Robot';
-import Position from './Position';
+import { Position } from './Position';
 import { Cards } from './Cards';
-import map from './map';
+import {map} from './map';
 
 export class Game {
     constructor(nbRobot, nbTours) {
@@ -20,7 +20,7 @@ export class Game {
     }
 
     newBatteryPopUp() {
-        var random = getRandomInt(5, 10);
+        var random = this.getRandomInt(5, 10);
         var maxWeight = 0;
         var tmpX;
         var tmpY;
@@ -29,7 +29,7 @@ export class Game {
                 var x = square.x;
                 var y = square.y;
                 var weight = 0;
-                robots.forEach(robot => {
+                this.robots.forEach(robot => {
                     var dist = robot.getPosition().getX() * x - robot.getPosition().getY() * y;
                     if (dist >= random) {
                         weight = weight + 1;
@@ -67,11 +67,14 @@ export class Game {
     }
 
     getDataCard(id){
-        Cards.forEach(card => {
+        let result;        
+        Cards.some(card => {
             if(card.id == id) {
-                return card;
+                result = card;
+                return true;
             }
         });
+        return result;
     }
 
     //TODO: Reset la current energie et addEnergie a la fin du tour
