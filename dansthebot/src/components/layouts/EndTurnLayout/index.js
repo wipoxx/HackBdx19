@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Navbar from "../../containers/Navbar/index";
 import "./index.css";
-import playersInfo from "./../../../reducers/playersReducer";
 
 class EndTurnLayout extends Component {
 	state = {};
