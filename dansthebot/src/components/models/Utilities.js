@@ -2,15 +2,19 @@ import {map} from './map';
 
 export class Utilities {
     //Verifie si le move est correct 
-    static isCorrectMove(arrayPos) {        
+    static isCorrectMove(arrayPos) {
+        let result = true;        
         arrayPos.forEach(pos => {
             let x = pos.getX();
             let y = pos.getY();
-            if(map[x][y].type == "grass" || map[x][y].content == "robot") {
-                return false;
+            
+            
+            if(map[x * 20+y].type == "grass" || map[x * 20+y].content == "robot") {
+                
+                result=  false;
             }
         });
-        return true;
+        return result;
     }
 
     static getRandomInt(min, max) {

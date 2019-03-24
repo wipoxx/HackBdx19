@@ -15,7 +15,7 @@ export class Game {
         this.robots = [];
 
         for (var i = 0; i < nbRobot; i++) {
-            this.robots.push(new Robot(0, PosDefault[i], [], OrientDefault[i]));
+            this.robots.push(new Robot(0, PosDefault[i], [], OrientDefault[i], 5));
         }
     }
 
@@ -54,7 +54,11 @@ export class Game {
     //Appelle les fonctions d'action Move, Bonus, Malus
     doAction(robot, card) {
         if (card.cost <= robot.getEnergie()) {
-            let isDone = robot[card.action];
+            console.log(card);
+            
+            let isDone = robot[card.action]();
+            console.log(isDone);
+            
             robot.tired(card.cost);
             return isDone;
         } else {
@@ -110,6 +114,9 @@ export class Game {
     HandleAlgo(cards){
         //TODO Recuperer le robot du player
         let defaultTarget=this.robots[0];
+        
+        console.log(this.robots[0].getEnergie());
+        
         for(var i = 0; i < cards.length; i++) {
             switch(cards[i].type){
                
@@ -147,7 +154,9 @@ export class Game {
                 break;
             }
         }
+        console.log(this.robots[0].getEnergie());
         return defaultTarget.getPosition();
+        
     }
 
     getDataCard(id){

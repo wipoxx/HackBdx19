@@ -12,11 +12,11 @@ export class Position{
         return this.y;
     }
 
-    setX(){
-        return this.x;
+    setX(diff){
+        this.x +=  + diff;
     }
 
-    setY(){
-        return this.y;
+    setY(diff){
+        this.y += diff;
     }
 }
