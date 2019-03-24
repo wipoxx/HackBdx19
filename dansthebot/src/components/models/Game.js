@@ -1,6 +1,6 @@
 import { Robot } from './Robot';
 import Position from './Position';
-import Cards from './Cards';
+import { Cards } from './Cards';
 import map from './map';
 
 export class Game {
