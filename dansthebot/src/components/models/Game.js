@@ -1,6 +1,10 @@
-import { Robot } from './Robot';
+import {
+    Robot
+} from './Robot';
 import Position from './Position';
-import { Cards } from './Cards';
+import {
+    Cards
+} from './Cards';
 import map from './map';
 
 export class Game {
@@ -43,7 +47,7 @@ export class Game {
             }
         })
         map.forEach(square => {
-            if(square.x === tmpX && square.y === tmpY){
+            if (square.x === tmpX && square.y === tmpY) {
                 square.content = "battery"
             }
         })
@@ -66,9 +70,9 @@ export class Game {
         //TODO: update le content de la map  si le robot a bougé
     }
 
-    getDataCard(id){
+    getDataCard(id) {
         Cards.forEach(card => {
-            if(card.id == id) {
+            if (card.id == id) {
                 return card;
             }
         });

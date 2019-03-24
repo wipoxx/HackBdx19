@@ -1,5 +1,4 @@
-export const Cards = [
-    {
+export const Cards = [{
         "id": "1",
         "type": "Action",
         "action": "MoveUp1",
@@ -46,8 +45,7 @@ export const Cards = [
         "type": "Bonus",
         "action": "Gain2",
         "cost": "0"
-    }
-    ,
+    },
     {
         "id": "9",
         "type": "Bonus",

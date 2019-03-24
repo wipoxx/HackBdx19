@@ -2,14 +2,14 @@ import Position from './Position'
 import Utilities from './Utilities'
 
 export class Robot {
-    constructor(nbBatterie, position, etat, orientation, energie){
+    constructor(nbBatterie, position, etat, orientation, energie) {
         this.nbBatterie = nbBatterie;
         this.position = position;
         this.orientation = orientation;
         this.energie = energie;
         this.currentEnergie = this.energie;
         // C'est un tableau de Malus ??
-        this.etat = etat; 
+        this.etat = etat;
     }
 
     //Gettters
@@ -41,115 +41,115 @@ export class Robot {
 
 
     //Deplacements
-    MoveUp1(){
+    MoveUp1() {
         return Move(1);
     }
-    MoveUp3(){
+    MoveUp3() {
         return Move(3);
     }
-    MoveBack1(){
+    MoveBack1() {
         return Move(-1);
     }
-    Jump1(){
+    Jump1() {
         return Move(2);
     }
-    Move(nbCase){
+    Move(nbCase) {
         let arrayPos = [];
-        switch(this.orientation){
+        switch (this.orientation) {
             case 'NORTH':
-                if(nbCase == 3) {
-                    arrayPos.push(this.position.getY()-1);
-                    arrayPos.push(this.position.getY()-2);
+                if (nbCase == 3) {
+                    arrayPos.push(this.position.getY() - 1);
+                    arrayPos.push(this.position.getY() - 2);
                 }
-                arrayPos.push(this.position.getY()-nbCase);
+                arrayPos.push(this.position.getY() - nbCase);
 
-                if(Utilities.isCorrectMove(arrayPos)) {
-                    this.position.setY(this.position.getY()-nbCase);
+                if (Utilities.isCorrectMove(arrayPos)) {
+                    this.position.setY(this.position.getY() - nbCase);
                     return true;
                 }
-            break;
+                break;
             case 'SOUTH':
-                if(nbCase == 3) {
-                    arrayPos.push(this.position.getY()+1);
-                    arrayPos.push(this.position.getY()+2);
+                if (nbCase == 3) {
+                    arrayPos.push(this.position.getY() + 1);
+                    arrayPos.push(this.position.getY() + 2);
                 }
-                arrayPos.push(this.position.getY()+nbCase);
+                arrayPos.push(this.position.getY() + nbCase);
 
-                if(Utilities.isCorrectMove(arrayPos)) {
-                    this.position.setY(this.position.getY()+nbCase);
+                if (Utilities.isCorrectMove(arrayPos)) {
+                    this.position.setY(this.position.getY() + nbCase);
                     return true;
                 }
-            break;
+                break;
             case 'WEST':
-                if(nbCase == 3) {
-                    arrayPos.push(this.position.getX()-1);
-                    arrayPos.push(this.position.getX()-2);
+                if (nbCase == 3) {
+                    arrayPos.push(this.position.getX() - 1);
+                    arrayPos.push(this.position.getX() - 2);
                 }
-                arrayPos.push(this.position.getX()-nbCase);
+                arrayPos.push(this.position.getX() - nbCase);
 
-                if(Utilities.isCorrectMove(arrayPos)) {
-                    this.position.setX(this.position.getX()-nbCase);
+                if (Utilities.isCorrectMove(arrayPos)) {
+                    this.position.setX(this.position.getX() - nbCase);
                     return true;
                 }
-            break;
+                break;
             case 'EAST':
-                if(nbCase == 3) {
-                    arrayPos.push(this.position.getX()+1);
-                    arrayPos.push(this.position.getX()+2);
-                } 
-                arrayPos.push(this.position.getX()+nbCase);
+                if (nbCase == 3) {
+                    arrayPos.push(this.position.getX() + 1);
+                    arrayPos.push(this.position.getX() + 2);
+                }
+                arrayPos.push(this.position.getX() + nbCase);
 
-                if(Utilities.isCorrectMove(arrayPos)) {
-                    this.position.setX(this.position.getX()+nbCase);
+                if (Utilities.isCorrectMove(arrayPos)) {
+                    this.position.setX(this.position.getX() + nbCase);
                     return true;
                 }
-            break;
+                break;
         }
         return false;
     }
 
     //Fonctions de Rotation 
-    Rotate(direction){
-        if(direction == "HORAIRE"){
-            switch(this.orientation){
+    Rotate(direction) {
+        if (direction == "HORAIRE") {
+            switch (this.orientation) {
                 case 'NORTH':
                     this.orientation = 'EAST';
-                break;
+                    break;
                 case 'SOUTH':
                     this.orientation = 'WEST';
-                break;
+                    break;
                 case 'WEST':
                     this.orientation = 'NORTH';
-                break;
+                    break;
                 case 'EAST':
                     this.orientation = 'SOUTH';
-                break;
+                    break;
             }
 
         } else {
-            switch(this.orientation){
+            switch (this.orientation) {
                 case 'NORTH':
                     this.orientation = 'WEST';
-                break;
+                    break;
                 case 'SOUTH':
                     this.orientation = 'EAST';
-                break;
+                    break;
                 case 'WEST':
                     this.orientation = 'SOUTH';
-                break;
+                    break;
                 case 'EAST':
                     this.orientation = 'NORTH';
-                break;
+                    break;
             }
         }
         return true;
     }
 
-    RotateHoraire(){
+    RotateHoraire() {
         return Rotate("HORAIRE");
     }
 
-    AntiRotate(){
+    AntiRotate() {
         return Rotate("ANTIHORAIRE");
     }
 }

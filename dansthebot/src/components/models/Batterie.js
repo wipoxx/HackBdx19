@@ -1,5 +1,5 @@
 export class Batterie {
-    constructor(position){
+    constructor(position) {
         this.position = position;
     }
 }

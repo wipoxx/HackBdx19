@@ -1,22 +1,22 @@
-export class Position{
-    constructor(x, y){
+export class Position {
+    constructor(x, y) {
         this.x = x;
         this.y = y;
     }
 
-    getX(){
+    getX() {
         return this.x;
     }
 
-    getY(){
+    getY() {
         return this.y;
     }
 
-    setX(){
+    setX() {
         return this.x;
     }
 
-    setY(){
+    setY() {
         return this.y;
     }
 }
