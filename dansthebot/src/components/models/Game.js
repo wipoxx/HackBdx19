@@ -1,8 +1,8 @@
 import { Robot } from './Robot';
 import { Position } from './Position';
 import { Cards } from './Cards';
-import {map} from './map';
-
+import { map } from './map';
+import { Utilities } from './Utilities';
 export class Game {
     constructor(nbRobot, nbTours) {
 
@@ -20,7 +20,7 @@ export class Game {
     }
 
     newBatteryPopUp() {
-        var random = this.getRandomInt(5, 10);
+        var random = Utilities.getRandomInt(5, 10);
         var maxWeight = 0;
         var tmpX;
         var tmpY;
@@ -50,20 +50,104 @@ export class Game {
 
     }
 
-    getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
 
-    doAction(robot, action, cost) {
-        if (cost <= robot.getEnergie()) {
-            let isDone = robot[action];
-            if (isDone) {
-                robot.tired(cost);
-            }
+    //Appelle les fonctions d'action Move, Bonus, Malus
+    doAction(robot, card) {
+        if (card.cost <= robot.getEnergie()) {
+            let isDone = robot[card.action];
+            robot.tired(card.cost);
+            return isDone;
+        } else {
+            throw "Plus d'énergie";
         }
         //TODO: update le content de la map  si le robot a bougé
+    }
+
+    doStructureControl(robot, card, conditionCard, suiteCard){
+        if(this.checkConditionControl(conditionCard.action, robot)) 
+        {        
+            switch (card) {
+                case "While":
+                    while(this.checkConditionControl(conditionCard.action, robot) && robot.get){
+                        suiteCard.forEach((card) => {
+                            try{
+                                this.doAction(robot, card);
+                            } catch(e) {
+                                if(e == "Plus d'énergie")
+                                    throw "Plus d'énergie";
+                                else
+                                    console.log(e);
+                            }
+                        });
+                    }
+                break;
+                case "If":
+                    suiteCard.forEach((card) => {
+                        try {
+                            this.doAction(robot, card);
+                        } catch(e) {
+                            if(e == "Plus d'énergie")
+                                throw "Plus d'énergie";
+                            else
+                                console.log(e);
+                        }
+                    })
+                break;
+            }
+        }
+    }
+
+    checkConditionControl(condition, robot){
+        switch (condition) {
+            case "hasWall":
+                    let pos = robot.inFrontOfYou();
+                    return map[pos.getX()][pos.getY()].type == "grass";        
+            default:
+                break;
+        }
+    }
+
+    HandleAlgo(cards){
+        //TODO Recuperer le robot du player
+        let defaultTarget;
+        for(var i = 0; i < cards.length; i++) {
+            switch(cards[i].type){
+               
+                case "Malus":
+
+                case "Action":
+                    try {
+                        this.doAction(defaultTarget, cards[i]);
+                    } catch(e) {
+                        if(e == "Plus d'énergie")
+                            return defaultTarget.getPosition();
+                        else
+                            console.log(e);
+                    }
+                break;
+                case "Structure de controle" : 
+                    
+                    let condition = cards[i+1];
+                    let struct = cards[i];
+                    let finAction = struct.action == "If" ? "end-If" : "end-While";
+                    let suiteCard = []
+                    for(var j= i+2; cards[j].action != finAction; j++) {
+                        suiteCard.push(cards[j]);
+                    }
+                    try{
+                        this.doStructureControl(defaultTarget, struct, condition, suiteCard);
+                    }
+                    catch(e) {
+                        if(e == "Plus d'énergie")
+                            return defaultTarget.getPosition();
+                        else
+                            console.log(e);
+                    }
+                    i = j+1;
+                break;
+            }
+        }
+        return defaultTarget.getPosition();
     }
 
     getDataCard(id){

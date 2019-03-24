@@ -152,4 +152,20 @@ export class Robot {
     AntiRotate(){
         return this.Rotate("ANTIHORAIRE");
     }
+
+    //Affiche la position de la case en face de lui
+    inFrontOfYou(){
+        switch(this.orientation) {
+            case 'NORTH':
+                return new Position(this.getPosition().getX(), this.getPosition().getY()+1);
+            case 'SOUTH':
+                return new Position(this.getPosition().getX(), this.getPosition().getY()-1);
+            case 'WEST':
+                return new Position(this.getPosition().getX()-1, this.getPosition().getY());
+            case 'EAST':
+                return new Position(this.getPosition().getX()+1, this.getPosition().getY());
+        }
+    }
+
+    //TODO Implémenter les bonus, Malus et gerer les etats
 }
