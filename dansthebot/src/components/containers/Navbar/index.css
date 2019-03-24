@@ -1,0 +1,47 @@
+.navbar {
+	display: flex;
+	justify-content: space-around;
+}
+
+.icon {
+	width: 30px;
+	height: auto;
+}
+
+.heartIcon {
+	width: 45px;
+	height: auto;
+}
+
+.navbar img {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.lifePts {
+	display: flex;
+	/* justify-content: space-between; */
+	flex: 1;
+}
+
+.batteryPts {
+	flex: 1;
+}
+
+.energyPts {
+	/* flex-direction: row; */
+	flex: 1;
+}
+
+.energyPts p {
+	display: inline;
+}
+
+.gameInfo {
+	display: flex;
+	flex-direction: column;
+}
+
+.gameInfo p {
+	display: inline;
+}
