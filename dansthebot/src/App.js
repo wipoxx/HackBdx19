@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Route, BrowserRouter } from "react-router-dom";
 import Layout from "./components/layouts/Layout";
-import HomeLayout from "./components/layouts/HomeLayout/HomeLayout";
+import HomeLayout from "./components/layouts/HomeLayout/index";
+import BoardLayout from "./components/layouts/BoardLayout/index";
+import EndTurnLayout from "./components/layouts/EndTurnLayout/index";
 
 class App extends Component {
 	render() {
@@ -9,6 +11,9 @@ class App extends Component {
 			<BrowserRouter>
 				<Layout>
 					<Route exact path="/" component={HomeLayout} />
+					{/* <Route exact path="/scanCards" component={HomeLayout} /> */}
+					<Route exact path="/selectSpace" component={BoardLayout} />
+					<Route exact path="/endTurn" component={EndTurnLayout} />
 				</Layout>
 			</BrowserRouter>
 		);
