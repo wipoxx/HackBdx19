@@ -61,8 +61,8 @@ export const Cards = [
         "type": "Bonus",
         "action": "Gain2",
         "cost": "0",
-        "name": "Gain d'énergie moyen",
-        "desc": "Votre robot récupère 2 points d'énergie."
+        "name": "Average energy gain",
+        "desc": "Your robot gain 2 more energy"
     }
     ,
     {
@@ -90,8 +90,8 @@ export const Cards = [
         "action": "ForbideRotate",
         "cost": "2",
         "args": ["target"],
-        "name": "Interdiction de tourner !",
-        "desc": "Interdisez à un adversaire de tourner son robot pendant 1 tour."
+        "name": "Forbid rotate !",
+        "desc": "Forbid an opponent from turning his robot for 1 turn."
     },
     {
         "id": "12",
@@ -99,8 +99,8 @@ export const Cards = [
         "action": "ForbideLoop",
         "cost": "2",
         "args": ["target"],
-        "name": "Interdiction de boucle !",
-        "desc": "Interdisez à un adversaire d'utiliser une boucle."
+        "name": "Forbid loop !",
+        "desc": "Forbid an opponent to use loop."
     },
     {
         "id": "13",
@@ -108,8 +108,8 @@ export const Cards = [
         "action": "ForbideIf",
         "cost": "2",
         "args": ["target"],
-        "name": "Interdiction de test !",
-        "desc": "Interdisez à un adversaire d'utiliser un test."
+        "name": "Forbid if condition !",
+        "desc": "Forbid an opponent to use a if condition."
     },
     {
         "id": "14",
@@ -117,8 +117,8 @@ export const Cards = [
         "action": "ForbideBreak",
         "cost": "2",
         "args": ["target"],
-        "name": "Interdiction de stop !",
-        "desc": "Interdisez à un adversaire d'utiliser un break."
+        "name": "Forbid break !",
+        "desc": "Forbid an opponent to use a break."
     },
     {
         "id": "15",
@@ -135,16 +135,16 @@ export const Cards = [
         "type": "Structure de controle",
         "action": "While",
         "cost": "2",
-        "name": "Tant que",
-        "desc": "Répètent la réalisation d'une ou des actions attachés tant que la condition est valide."
+        "name": "While",
+        "desc": "Repeat actions while the condition is valid.."
     },
     {
         "id": "17",
         "type": "Structure de controle",
         "action": "If",
         "cost": "2",
-        "name": "Si",
-        "desc": "Réalise une fois les actions attachés si la condition est valide."
+        "name": "If condition",
+        "desc": "Do once actions in the condition if the condition is true."
     },
     {
         "id": "18",
@@ -152,7 +152,7 @@ export const Cards = [
         "action": "Break",
         "cost": "2",
         "name": "Stop",
-        "desc": "Stop la boucle en cours et passe à la suite."
+        "desc": "Break the current loop et do the next actions."
     },
     {
         "id": "19",
@@ -168,8 +168,8 @@ export const Cards = [
         "type": "Fin structure de controle",
         "action": "end-While",
         "cost": "0",
-        "name": "Fin tant que",
-        "desc": "Termine la dernière boucle 'tant que' en cours."
+        "name": "End of While",
+        "desc": "Finish the last while loop currently running."
     },
     {
         "id": "21",
@@ -177,7 +177,7 @@ export const Cards = [
         "action": "end-If",
         "cost": "0",
         "name": "Fin si",
-        "desc": "Termine le dernier bloc 'si' en cours."
+        "desc": "Finish the last if condition currently running."
     }
     ,
     {
@@ -185,7 +185,7 @@ export const Cards = [
         "type": "Condition",
         "action": "condition-wall-ahead",
         "cost": "0",
-        "name": "Condition: Mur devant",
-        "desc": "La condition est vrai si un mur se trouve devant le robot."
+        "name": "Condition: Wall ahead",
+        "desc": "The condition is true if there is a wall in front of the robot."
     }
 ]
