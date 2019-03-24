@@ -19,7 +19,7 @@ export class Game {
 		this.robots = [];
 
 		for (var i = 0; i < nbRobot; i++) {
-			this.robots.push(new Robot(0, PosDefault[i], [], OrientDefault[i]));
+			this.robots.push(new Robot(0, PosDefault[i], [], OrientDefault[i], 5));
 		}
 	}
 
@@ -52,18 +52,6 @@ export class Game {
 				square.content = "battery";
 			}
 		});
-	}
-
-	//Appelle les fonctions d'action Move, Bonus, Malus
-	doAction(robot, card) {
-		if (card.cost <= robot.getEnergie()) {
-			let isDone = robot[card.action];
-			robot.tired(card.cost);
-			return isDone;
-		} else {
-			throw "Plus d'énergie";
-		}
-		//TODO: update le content de la map  si le robot a bougé
 	}
 
 	doStructureControl(robot, card, conditionCard, suiteCard) {
@@ -108,45 +96,20 @@ export class Game {
 		}
 	}
 
-	HandleAlgo(cards) {
-		//TODO Recuperer le robot du player
-		let defaultTarget = this.robots[0];
-		for (var i = 0; i < cards.length; i++) {
-			switch (cards[i].type) {
-				case "Malus":
+	//Appelle les fonctions d'action Move, Bonus, Malus
+	doAction(robot, card) {
+		if (card.cost <= robot.getEnergie()) {
+			console.log(card);
 
-				case "Action":
-					try {
-						this.doAction(defaultTarget, cards[i]);
-					} catch (e) {
-						if (e === "Plus d'énergie") return defaultTarget.getPosition();
-						else console.log(e);
-					}
-					break;
-				case "Structure de controle":
-					let condition = cards[i + 1];
-					let struct = cards[i];
-					let finAction = struct.action === "If" ? "end-If" : "end-While";
-					let suiteCard = [];
-					for (var j = i + 2; cards[j].action !== finAction; j++) {
-						suiteCard.push(cards[j]);
-					}
-					try {
-						this.doStructureControl(
-							defaultTarget,
-							struct,
-							condition,
-							suiteCard,
-						);
-					} catch (e) {
-						if (e === "Plus d'énergie") return defaultTarget.getPosition();
-						else console.log(e);
-					}
-					i = j + 1;
-					break;
-			}
+			let isDone = robot[card.action]();
+			console.log(isDone);
+
+			robot.tired(card.cost);
+			return isDone;
+		} else {
+			throw "Plus d'énergie";
 		}
-		return defaultTarget.getPosition();
+		//TODO: update le content de la map  si le robot a bougé
 	}
 
 	getDataCard(id) {
@@ -158,6 +121,51 @@ export class Game {
 			}
 		});
 		return result;
+	}
+
+	HandleAlgo(cards) {
+		//TODO Recuperer le robot du player
+		let defaultTarget = this.robots[0];
+
+		console.log(this.robots[0].getEnergie());
+
+		for (var i = 0; i < cards.length; i++) {
+			switch (cards[i].type) {
+				case "Malus":
+
+				case "Action":
+					try {
+						this.doAction(defaultTarget, cards[i]);
+					} catch (e) {
+						if (e == "Plus d'énergie") return defaultTarget.getPosition();
+						else console.log(e);
+					}
+					break;
+				case "Structure de controle":
+					let condition = cards[i + 1];
+					let struct = cards[i];
+					let finAction = struct.action == "If" ? "end-If" : "end-While";
+					let suiteCard = [];
+					for (var j = i + 2; cards[j].action != finAction; j++) {
+						suiteCard.push(cards[j]);
+					}
+					try {
+						this.doStructureControl(
+							defaultTarget,
+							struct,
+							condition,
+							suiteCard,
+						);
+					} catch (e) {
+						if (e == "Plus d'énergie") return defaultTarget.getPosition();
+						else console.log(e);
+					}
+					i = j + 1;
+					break;
+			}
+		}
+		console.log(this.robots[0].getEnergie());
+		return defaultTarget.getPosition();
 	}
 
 	//TODO: Reset la current energie et addEnergie a la fin du tour
