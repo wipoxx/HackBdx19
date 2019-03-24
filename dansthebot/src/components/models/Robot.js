@@ -2,10 +2,12 @@ import Position from './Position'
 import Utilities from './Utilities'
 
 export class Robot {
-    constructor(nbBatterie, position, etat, orientation){
+    constructor(nbBatterie, position, etat, orientation, energie){
         this.nbBatterie = nbBatterie;
         this.position = position;
         this.orientation = orientation;
+        this.energie = energie;
+        this.currentEnergie = this.energie;
         // C'est un tableau de Malus ??
         this.etat = etat; 
     }
@@ -14,31 +16,42 @@ export class Robot {
     getPosition() {
         return this.position;
     }
-
     getOrientation() {
         return this.orientation;
     }
-
     getNbBatterie() {
         return this.nbBatterie;
     }
-
     getEtat() {
         return this.etat;
     }
+    getEnergie() {
+        //TODO Prendre en compte les etats
+        return this.energie;
+    }
+
+    //Setter
+    addEnergie() {
+        this.energie++;
+    }
+
+    tired(cost) {
+        this.currentEnergie = this.currentEnergie - cost;
+    }
+
 
     //Deplacements
     MoveUp1(){
-        Move(1);
+        return Move(1);
     }
     MoveUp3(){
-        Move(3);
+        return Move(3);
     }
     MoveBack1(){
-        Move(-1);
+        return Move(-1);
     }
     Jump1(){
-        Move(2);
+        return Move(2);
     }
     Move(nbCase){
         let arrayPos = [];
@@ -52,6 +65,7 @@ export class Robot {
 
                 if(Utilities.isCorrectMove(arrayPos)) {
                     this.position.setY(this.position.getY()-nbCase);
+                    return true;
                 }
             break;
             case 'SOUTH':
@@ -63,6 +77,7 @@ export class Robot {
 
                 if(Utilities.isCorrectMove(arrayPos)) {
                     this.position.setY(this.position.getY()+nbCase);
+                    return true;
                 }
             break;
             case 'WEST':
@@ -74,6 +89,7 @@ export class Robot {
 
                 if(Utilities.isCorrectMove(arrayPos)) {
                     this.position.setX(this.position.getX()-nbCase);
+                    return true;
                 }
             break;
             case 'EAST':
@@ -85,9 +101,11 @@ export class Robot {
 
                 if(Utilities.isCorrectMove(arrayPos)) {
                     this.position.setX(this.position.getX()+nbCase);
+                    return true;
                 }
             break;
         }
+        return false;
     }
 
     //Fonctions de Rotation 
@@ -124,13 +142,14 @@ export class Robot {
                 break;
             }
         }
+        return true;
     }
 
     RotateHoraire(){
-        Rotate("HORAIRE");
+        return Rotate("HORAIRE");
     }
 
     AntiRotate(){
-        Rotate("ANTIHORAIRE");
+        return Rotate("ANTIHORAIRE");
     }
 }

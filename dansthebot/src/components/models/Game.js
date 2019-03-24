@@ -18,7 +18,14 @@ export class Game{
     }
 
     
-    doAction(robot, action){
-        robot[action];
+    doAction(robot, action, cost){
+        if(cost <= robot.getEnergie()){
+            let isDone = robot[action];
+            if(isDone) {
+                robot.tired(cost);
+            }
+        }
     }
+
+    //TODO: Reset la current energie et addEnergie a la fin du tour
 }
