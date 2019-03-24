@@ -1,5 +1,4 @@
-{
-    "map": [{
+export default Map = [{
             "x": 0,
             "y": 0,
             "type": "grass",
@@ -2400,4 +2399,3 @@
             "content": "null"
         }
     ]
-}

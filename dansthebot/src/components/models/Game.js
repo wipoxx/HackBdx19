@@ -5,7 +5,7 @@ export class Game{
     constructor(nbRobot, nbTours){
 
         //Definition de constante du jeu
-        const PosDefault = [new Position(0,0), new Position(10,0), new Position(0,10), new Position(10,10)]
+        const PosDefault = [new Position(0,0), new Position(19,0), new Position(0,19), new Position(19,19)]
         const OrientDefault = ["SOUTH", "SOUTH", "NORTH", "NORTH"];
 
         this.nbRobot = nbRobot;
@@ -43,6 +43,7 @@ export class Game{
                 robot.tired(cost);
             }
         }
+        //TODO: update le content de la map  si le robot a bougé
     }
 
     //TODO: Reset la current energie et addEnergie a la fin du tour
