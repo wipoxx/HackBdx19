@@ -3,31 +3,38 @@ import "./HomeLayout.css";
 import "./Card.css";
 // import logo from "../../assets/images/logo.svg";
 import QrReader from 'react-qr-reader'
+import {Game} from "../../models/Game";
+
 class QrCodeLayout extends Component {
     //cards: ["1","2","3","4","5","6","7"],
     state = {
-        cards: ["5","4","3","88","22","6","7"],
+        cards: [],
         result: 'd-none'
       }
      
       constructor(props){
           super(props);
-          this.clearCards = this.clearCards.bind(this)
+          this.clearCards = this.clearCards.bind(this);
+          
+          this.game = new Game(2, 0);
       }
       handleScan = data => {
-        if (data) {
-            let cards = this.state.cards;
+        if(data) {
             
+            let cards = this.state.cards;
+
+            let currentCard = this.game.getDataCard(data)
             //Si la carte n'est pas déjà dans le tableau, on ajoute dans cards son ID
-            !cards.includes(data) ? cards.push(data) : console.log("This item already exists");
-          this.setState({
+            !cards.includes(currentCard) ? cards.push(currentCard) : console.log("This item already exists");
+            this.setState({
             result: data,
             cards : cards
           })
         }
       }
+
       handleError = err => {
-        console.error(err)
+        console.error(err);
       }
 
       clearCards(){
@@ -79,17 +86,17 @@ class QrCodeLayout extends Component {
                                                 <div className="c-card">
                                                     <div className="c-card-header">
                                                     <p className="c-card-order">{`n°${id+1}`}</p>
-                                                    <p className="c-card-name">{`Carte n°: ${item}`}</p>
-                                                    <p className="c-energy-cost">5<span aria-label="energy-icon" role="img">⚡</span></p>
+                                                    <p className="c-card-name">{`${item.name}`}</p>
+                                                    
                                                     </div>
                                                     <div className="c-card-body">
-                                                        <p>{`Description n°: ${item}
-                                                            Dorem ursus maritimus curriculaem vitae taera maritimus curriculaem vitae taera maritimus curriculaem vitae taera `}</p>
+                                                        <p>{`Description : ${item.desc} `}</p>
                                                     </div>
                                                     <div className="c-card-code">
-                                                        <p>{`While(){}`}</p>
+                                                        <p>{`${item.action}()`}</p>
                                                     </div>
                                                     <div className="c-card-footer">
+                                                        <p className="c-energy-cost">{item.cost}<span aria-label="energy-icon" role="img">⚡</span></p>
                                                         <div className="row">
                                                             
                                                         </div>
