@@ -36,6 +36,12 @@ class QrCodeLayout extends Component {
 						!cards.includes(currentCard)
 							? cards.push(currentCard)
 							: console.log("This item already exists");
+							this.setState({
+								result: data,
+								lastCard: currentCard,
+								errors: [],
+								cards: cards,
+							});
 					} else {
 						console.log("Veuillez jouer une carte SDC avant une Fin de SDC");
 						this.setState({
